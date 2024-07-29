@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>você não pode recursar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #000000 0%, #434343 100%), url('https://images.unsplash.com/photo-1506748686214e9df14f5a3d63a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDA2Mzl8MHwxfGFsbHwxfHx8fHx8fHwxNjg0NTQwNzEy&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            color: #fff;
+            overflow: hidden; /* Para garantir que o fundo das estrelas não cause barra de rolagem */
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7); /* Fundo escuro com transparência para destacar sobre o fundo da imagem */
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+            width: 320px;
+            max-width: 90%;
+            position: relative;
+            color: #fff;
+            backdrop-filter: blur(8px); /* Adiciona um efeito de desfoque suave */
+        }
+        h1 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.4;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+        #hearts {
+            font-size: 40px;
+            color: #ff69b4;
+            margin-bottom: 30px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            border: none;
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+            outline: none;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+        }
+        button:active {
+            background: linear-gradient(135deg, #ff007f, #ff4b5c);
+            transform: scale(0.95);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+        #no {
+            background: linear-gradient(135deg, #ff4500, #ff6347);
+        }
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <h1>Gata, se o amor fosse um ritual sombrio, eu ofereceria minha alma como sacrifício, só para que você se tornasse a rainha dos meus pesadelos e sonhos. Você aceita namorar comigo?</h1>
+        <div id="hearts">💖💗💓💞</div>
+        <div class="button-container">
+            <button id="yes" onclick="redirect()">Sim</button>
+            <button id="no" onclick="moveNo()">Não</button>
+        </div>
+    </div>
+
+    <script>
+        function redirect() {
+            window.location.href = 'https://soundcloud.com/gmzfdnn/george-michael-careless';
+        }
+
+        function moveNo() {
+            const yesButton = document.getElementById('yes');
+            const noButton = document.getElementById('no');
+
+            // Swap button orders
+            const temp = yesButton.style.order;
+            yesButton.style.order = noButton.style.order;
+            noButton.style.order = temp;
+
+            // Initialize order if not set
+            if (!yesButton.style.order) yesButton.style.order = 1;
+            if (!noButton.style.order) noButton.style.order = 2;
+        }
+
+        // Set initial order
+        document.getElementById('yes').style.order = 1;
+        document.getElementById('no').style.order = 2;
+    </script>
+</body>
+</html>
